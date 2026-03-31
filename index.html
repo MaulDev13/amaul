@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Simple Project</title>
+        <meta name="api-base" content="https://simple-go-production.up.railway.app">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    </head>
+    <body>
+        <div
+            hx-get="/components/navbar.html"
+            hx-trigger="load"
+            hx-swap="innerHTML">
+        </div>
+        <div id="content"
+            hx-get="/pages/home.html"
+            hx-trigger="load"
+            hx-swap="innerHTML">
+        </div>
+        <script src="js/config.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>

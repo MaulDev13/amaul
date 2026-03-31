@@ -1,0 +1,1 @@
+const API_BASE_URL = "https://simple-go-production.up.railway.app";
