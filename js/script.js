@@ -1,10 +1,11 @@
 document.body.addEventListener("htmx:afterSwap", function (event) {
+    if (event.target.id !== "content") return;
 
     const btn = document.getElementById("pingBtn");
 
     if (!btn) return;
 
-    btn.setAttribute("hx-get", `${API_BASE_URL}/api/ping`);
+    btn.setAttribute("hx-get", hx("/api/ping"));
     btn.setAttribute("hx-target", "#result");
     btn.setAttribute("hx-swap", "innerHTML");
     btn.setAttribute("hx-trigger", "click");
@@ -21,3 +22,7 @@ document.body.addEventListener("htmx:beforeRequest", function () {
 document.body.addEventListener("htmx:afterRequest", function (event) {
     console.log("Response received:", event.detail.xhr.response);
 });
+
+function hx(path) {
+    return `${BASE_URL}${path}`;
+}

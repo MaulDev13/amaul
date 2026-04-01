@@ -3,14 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <title>Simple Project</title>
-        
-        <base href="/amaul/">
+    
 
         <meta name="api-base" content="https://simple-go-production.up.railway.app">
         <link rel="stylesheet" href="css/style.css">
+        <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+        
     </head>
-    <body>
+    <body class="bg-gray-100">
+        <div class="bg-white shadow-md">
+            <h1 class="text-2xl font-bold text-gray-800">Simple Project</h1>
+        </div>
+        
         <div
             hx-get="components/navbar.html"
             hx-trigger="load"
