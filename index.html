@@ -17,12 +17,12 @@
         </div>
         
         <div
-            hx-get="components/navbar.html"
+            hx-get="/components/navbar.html"
             hx-trigger="load"
             hx-swap="innerHTML">
         </div>
         <div id="content"
-            hx-get="pages/home.html"
+            hx-get="/pages/home.html"
             hx-trigger="load"
             hx-swap="innerHTML">
         </div>
@@ -30,3 +30,29 @@
         <script src="js/script.js"></script>
     </body>
 </html>
+
+<script>
+    const API_BASE = document
+        .querySelector('meta[name="api-base"]')
+        .getAttribute("content");
+
+    const BASE_PATH = location.hostname === "localhost" ||
+                    location.hostname === "127.0.0.1"
+        ? ""
+        : "/amaul";
+
+    document.body.addEventListener("htmx:configRequest", function (event) {
+        let path = event.detail.path;
+
+        // 1. kalau API → arahkan ke backend
+        if (path.startsWith("/api")) {
+            event.detail.path = API_BASE + path;
+            return;
+        }
+
+        // 2. kalau bukan http → tambahkan base path
+        if (!path.startsWith("http")) {
+            event.detail.path = BASE_PATH + path;
+        }
+    });
+</script>
