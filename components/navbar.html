@@ -1,32 +1,20 @@
-<nav>
-    <button
+<nav class="flex gap-4">
+    <button class="nav-btn" data-path="/pages/home.html"
         hx-get="/pages/home.html"
         hx-target="#content"
         hx-swap="innerHTML">
         Home
     </button>
-    <button
+    <button class="nav-btn" data-path="/pages/about.html"
         hx-get="/pages/about.html"
         hx-target="#content"
         hx-swap="innerHTML">
         About
     </button>
-    <!-- <button
-        hx-get="pages/project.html"
-        hx-target="#content"
-        hx-swap="innerHTML">
-        Project
-    </button> -->
-    <button
+    <button class="nav-btn" data-path="/pages/contact.html"
         hx-get="/pages/contact.html"
         hx-target="#content"
         hx-swap="innerHTML">
         Contact
     </button>
-    <!-- <button
-        hx-get="pages/ping.html"
-        hx-target="#content"
-        hx-swap="innerHTML">
-        Ping
-    </button> -->
 </nav>
