@@ -2,41 +2,109 @@
     <h1 class="text-3xl font-bold mb-4">Projects</h1>
 
     <p class="text-gray-600">
-        Here are some of the things I’ve built and experimented with. Most of these 
-        projects are part of my learning process—trying out ideas, improving my skills, 
-        and understanding how systems work in practice.
+        Selected work across backend systems, infrastructure, and game development.
+        I focus on building systems that are not only functional, but also maintainable and production-ready.
+
+        <br><br>
+
+        Many of these projects are part of my learning process—experimenting with ideas,
+        improving my skills, and understanding how systems behave in real-world scenarios.
     </p>
 </div>
 
+<!-- Featured -->
+<div class="bg-white p-6 rounded-xl shadow mb-6">
+    <h2 class="text-xl font-semibold mb-4">🚀 Featured Work</h2>
 
-<!-- Game -->
-<div class="bg-white p-6 rounded-xl shadow mb-6 hover:shadow-lg transition">
-    <button
-        class="flex justify-between items-center w-full text-xl font-semibold mb-4"
-        hx-get="/pages/contents/game-content.html"
-        hx-target="#game-content"
-        hx-trigger="click once"
-        hx-swap="innerHTML"
-        onclick="toggleSection(this)"
-    >
-        <span>🎮 Game Development</span>
+    <div class="space-y-4">
 
-        <span class="arrow transition-transform duration-300">
-            ▼
-        </span>
-    </button>
+        <!-- Chatbot -->
+        <div class="bg-white p-6 rounded-xl shadow mb-6 hover:shadow-lg transition">
+            <button
+                class="flex justify-between items-center w-full text-xl font-semibold mb-4"
+                hx-get="/pages/contents/chatbot-content.html"
+                hx-target="#chatbot-content"
+                hx-trigger="click once"
+                hx-swap="innerHTML"
+                onclick="toggleSection(this, 'chatbot-content')"
+            >
+                <span>🤖 Chatbot Development</span>
 
-    <div id="game-content" class="hidden"></div>
+                <span class="arrow transition-transform duration-300">
+                    ▼
+                </span>
+            </button>
+
+            <div id="chatbot-content" class="hidden"></div>
+        </div>
+
+        <!-- DevOps -->
+        <div class="bg-white p-6 rounded-xl shadow mb-6 hover:shadow-lg transition">
+            <button
+                class="flex justify-between items-center w-full text-xl font-semibold mb-4"
+                hx-get="/pages/contents/devops-content.html"
+                hx-target="#devops-content"
+                hx-trigger="click once"
+                hx-swap="innerHTML"
+                onclick="toggleSection(this, 'devops-content')"
+            >
+                <span>⚙️ DevOps and Infrastructure</span>
+
+                <span class="arrow transition-transform duration-300">
+                    ▼
+                </span>
+            </button>
+
+            <div id="devops-content" class="hidden"></div>
+        </div>
+
+        <!-- Game -->
+        <div class="bg-white p-6 rounded-xl shadow mb-6 hover:shadow-lg transition">
+            <button
+                class="flex justify-between items-center w-full text-xl font-semibold mb-4"
+                hx-get="/pages/contents/game-content.html"
+                hx-target="#game-content"
+                hx-trigger="click once"
+                hx-swap="innerHTML"
+                onclick="toggleSection(this, 'game-content')"
+            >
+                <span>🎮 Game Development</span>
+
+                <span class="arrow transition-transform duration-300">
+                    ▼
+                </span>
+            </button>
+
+            <div id="game-content" class="hidden"></div>
+        </div>
+
+    </div>
 </div>
 
+
 <script>
-function toggleSection(button) {
-    const content = button.nextElementSibling;
-    const arrow = button.querySelector(".arrow");
+function toggleSection(button, targetId) {
+    const allContents = document.querySelectorAll('[id$="-content"]');
+    const allButtons = document.querySelectorAll('.arrow');
 
-    const isOpening = content.classList.contains("hidden");
+    const targetContent = document.getElementById(targetId);
+    const targetArrow = button.querySelector(".arrow");
 
-    content.classList.toggle("hidden");
-    arrow.classList.toggle("rotate-180", isOpening);
+    const isOpening = targetContent.classList.contains("hidden");
+
+    // 🔁 Close ALL sections first
+    allContents.forEach(el => {
+        el.classList.add("hidden");
+    });
+
+    allButtons.forEach(arrow => {
+        arrow.classList.remove("rotate-180");
+    });
+
+    // ✅ If it was closed → open it
+    if (isOpening) {
+        targetContent.classList.remove("hidden");
+        targetArrow.classList.add("rotate-180");
+    }
 }
 </script>
