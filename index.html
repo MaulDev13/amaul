@@ -1,87 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Maul Dev</title>
+<head>
+    <meta charset="UTF-8">
+    <title>Maul Dev</title>
 
-        <link rel="icon" href="assets/favicon.ico">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
 
-        <meta name="api-base" content="https://simple-go-production.up.railway.app">
-        <link rel="stylesheet" href="css/style.css">
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://unpkg.com/htmx.org@1.9.12"></script>
-        
-    </head>
-    <body class="bg-gray-100 text-gray-800 m-0 p-0 min-h-screen flex flex-col">
-        <div class="max-w-3xl mx-auto px-4">
-        
-            <div class="bg-white p-4 rounded-xl shadow mb-6 sticky top-0 z-50"
-                hx-get="/components/navbar.html"
+    <meta name="api-base" content="https://simple-go-production.up.railway.app">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+</head>
+
+<body>
+
+    <!-- MAIN APP WRAPPER -->
+    <div class="container content-center page-stack">
+
+        <!-- NAVBAR (HTMX LOADED) -->
+        <nav
+            hx-get="/components/navbar.html"
+            hx-trigger="load"
+            hx-swap="innerHTML">
+        </nav>
+
+        <!-- CONTENT AREA -->
+        <main class="page-stack">
+
+            <!-- LOADING STATE -->
+            <div id="loading" class="hidden">
+                <p class="text-meta">Loading...</p>
+            </div>
+
+            <!-- PAGE CONTENT -->
+            <section id="content"
+                hx-get="/pages/home.html"
                 hx-trigger="load"
                 hx-swap="innerHTML">
-            </div>
+            </section>
 
-            <div>
-                <div id="loading" class="hidden text-center p-4 text-sm text-gray-500">
-                    Loading...
-                </div>
-                <div id="content"
-                    hx-get="/pages/home.html"
-                    hx-trigger="load"
-                    hx-swap="innerHTML">
-                </div>
-            </div>
+        </main>
 
-            <p class="text-xs text-gray-500 mt-6 text-center">
+        <!-- FOOTER -->
+        <footer style="text-align:center;">
+            <p class="text-meta">
                 Architecture: HTMX + Go API
             </p>
+        </footer>
 
-        </div>
-        <script src="js/config.js"></script>
-        <script src="js/script.js"></script>
-        <script>
-            const API_BASE = document
-                .querySelector('meta[name="api-base"]')
-                .getAttribute("content");
+    </div>
 
-            const BASE_PATH = location.hostname === "localhost" ||
-                            location.hostname === "127.0.0.1"
-                ? ""
-                : "";
+    <!-- SCRIPTS -->
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
 
-            document.body.addEventListener("htmx:configRequest", function (event) {
-                let path = event.detail.path;
+    <script>
+        const API_BASE = document
+            .querySelector('meta[name="api-base"]')
+            .getAttribute("content");
 
-                // 1. kalau API → arahkan ke backend
-                if (path.startsWith("/api")) {
-                    event.detail.path = API_BASE + path;
-                    return;
-                }
+        const BASE_PATH = (
+            location.hostname === "localhost" ||
+            location.hostname === "127.0.0.1"
+        ) ? "" : "";
 
-                // 2. kalau bukan http → tambahkan base path
-                if (!path.startsWith("http")) {
-                    event.detail.path = BASE_PATH + path;
-                }
-            });
+        /* =========================================================
+           HTMX ROUTING
+           ========================================================= */
+        document.body.addEventListener("htmx:configRequest", function (event) {
+            let path = event.detail.path;
 
-            function setActive(button) {
-                document.querySelectorAll(".nav-btn").forEach(btn => {
-                    btn.classList.remove("text-blue-600", "border-blue-600");
-                    btn.classList.add("border-transparent");
-                });
+            if (!path) return;
 
-                button.classList.add("text-blue-600", "border-blue-600");
-                button.classList.remove("border-transparent");
+            // API routing
+            if (path.startsWith("/api")) {
+                event.detail.path = API_BASE + path;
+                return;
             }
 
-            // attach after click
-            document.body.addEventListener("click", function(e) {
-                if (e.target.classList.contains("nav-btn")) {
-                    setActive(e.target);
-                }
-            })
-        </script>
-    </body>
+            // static routing
+            if (!path.startsWith("http")) {
+                event.detail.path = BASE_PATH + path;
+            }
+        });
+
+        /* =========================================================
+           NAV ACTIVE STATE (DESIGN SYSTEM FRIENDLY)
+           ========================================================= */
+        function setActive(button) {
+            document.querySelectorAll(".nav-btn")
+                .forEach(btn => btn.classList.remove("is-active"));
+
+            button.classList.add("is-active");
+        }
+
+        document.body.addEventListener("click", function (e) {
+            const btn = e.target.closest(".nav-btn");
+            if (btn) setActive(btn);
+        });
+
+        /* =========================================================
+           LOADING STATE (HTMX HOOKED)
+           ========================================================= */
+        const loadingEl = document.getElementById("loading");
+
+        document.body.addEventListener("htmx:beforeRequest", () => {
+            loadingEl?.classList.remove("hidden");
+        });
+
+        document.body.addEventListener("htmx:afterRequest", () => {
+            loadingEl?.classList.add("hidden");
+        });
+
+        document.body.addEventListener("htmx:responseError", () => {
+            loadingEl?.classList.add("hidden");
+        });
+    </script>
+
+</body>
 </html>

@@ -1,334 +1,270 @@
-<div>
+<div class="card card--flat">
+
+    <p class="text-body">
+        A collection of game prototypes focused on systems design, gameplay mechanics,
+        and experimentation with Unity and C#.
+    </p>
+
+</div>
+
+
+<div class="project-list">
 
     <!-- 1v1 -->
-    <div class="space-y-4 my-3">
-        <div class="border p-4 rounded-lg">
-            <h3 class="font-bold">Turn-Based Game 2D — 1v1</h3>
-            <p class="text-sm text-gray-600 mb-2">
-                A turn-based combat prototype focused on handling core battle flow in a one-on-one setup.
-                Explores turn sequencing, action resolution, and simple AI decision-making.
-            </p>
-            <p class="text-xs text-gray-500 mb-2">Tech: Unity, C#</p>
-            <div class="text-xs text-gray-500 space-y-1 mt-2">
-                <p>• Implemented turn handling and action flow</p>
-                <p>• Built simple decision logic for AI</p>
-                <p>• Structured combat system for iteration</p>
-            </div>
-            <div class="flex gap-3 mt-3">
-                <a href="https://github.com/MaulDev13/Unity_TurnBasedClassic_Single" 
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    View on GitHub →
-                </a>
+    <div class="card card--sm card--interactive">
 
-                <a href="https://amaul.itch.io/turn-based-1v1"
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    Try on Itch.io →
-                </a>
-            </div>
+        <h3>Turn-Based Game 2D — 1v1</h3>
+
+        <p class="text-meta" style="margin-bottom: var(--space-sm);">
+            A turn-based combat prototype focused on handling core battle flow in a one-on-one setup.
+        </p>
+
+        <p class="text-meta">Tech: Unity, C#</p>
+
+        <div style="margin-top: var(--space-sm);">
+            <p>• Implemented turn handling and action flow</p>
+            <p>• Built simple AI decision logic</p>
+            <p>• Structured combat system for iteration</p>
         </div>
+
+        <div style="margin-top: var(--space-md); display:flex; gap:var(--space-sm);">
+            <a class="button button--secondary" href="https://github.com/MaulDev13/Unity_TurnBasedClassic_Single" target="_blank">
+                GitHub →
+            </a>
+
+            <a class="button button--primary" href="https://amaul.itch.io/turn-based-1v1" target="_blank">
+                Itch.io →
+            </a>
+        </div>
+
     </div>
+
 
     <!-- Teamfight -->
-    <div class="space-y-4 my-3">
-        <div class="border p-4 rounded-lg">
-            <h3 class="font-bold">Turn-Based Game 2D — Teamfight</h3>
-            <p class="text-sm text-gray-600 mb-2">
-                Extension of the combat system to support multiple units per side.
-                Focuses on turn order management and interaction between units.
-            </p>
-            <p class="text-xs text-gray-500 mb-2">Tech: Unity, C#</p>
-            <div class="text-xs text-gray-500 space-y-1 mt-2">
-                <p>• Extended system for multi-unit handling</p>
-                <p>• Managed turn order and coordination</p>
-                <p>• Adapted combat logic for scaling</p>
-            </div>
-            <div class="flex gap-3 mt-3">
-                <a href="https://github.com/MaulDev13/Unity_TurnBasedClassic_Teamfight" 
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    View on GitHub →
-                </a>
+    <div class="card card--sm card--interactive">
 
-                <!-- <a href="https://amaul.itch.io/"
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    Try on Itch.io →
-                </a> -->
-            </div>
+        <h3>Turn-Based Game 2D — Teamfight</h3>
+
+        <p class="text-body">
+            Extension of combat system for multiple units per side.
+        </p>
+
+        <p class="text-meta">Tech: Unity, C#</p>
+
+        <div style="margin-top: var(--space-sm);">
+            <p>• Extended system for multi-unit handling</p>
+            <p>• Managed turn order and coordination</p>
+            <p>• Adapted combat logic for scaling</p>
         </div>
+
+        <div style="margin-top: var(--space-md);">
+            <a class="button button--secondary" href="https://github.com/MaulDev13/Unity_TurnBasedClassic_Teamfight" target="_blank">
+                GitHub →
+            </a>
+        </div>
+
     </div>
+
 
     <!-- MCTS -->
-    <div class="space-y-4 my-3">
-        <div class="border p-4 rounded-lg">
-            <h3 class="font-bold">Turn-Based Game — MCTS</h3>
-            <p class="text-sm text-gray-600 mb-2">
-                Exploration of AI decision-making using Monte Carlo Tree Search.
-                Evaluates possible future states to guide action selection.
-            </p>
-            <p class="text-xs text-gray-500 mb-2">Tech: Unity, C#</p>
-            <div class="text-xs text-gray-500 space-y-1 mt-2">
-                <p>• Implemented MCTS-based decision system</p>
-                <p>• Simulated multiple future outcomes</p>
-                <p>• Compared results for action selection</p>
-            </div>
+    <div class="card card--sm card--interactive">
 
-            <div class="flex gap-3 mt-3">
-                <a href="https://github.com/MaulDev13/Unity_Turn-Based-Game-2D-with-MCTS" 
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    View on GitHub →
-                </a>
+        <h3>Turn-Based Game — MCTS AI</h3>
 
-                <!-- <a href="https://amaul.itch.io/"
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    Try on Itch.io →
-                </a> -->
-            </div>
+        <p class="text-body">
+            Exploration of AI decision-making using Monte Carlo Tree Search.
+        </p>
+
+        <p class="text-meta">Tech: Unity, C#</p>
+
+        <div style="margin-top: var(--space-sm);">
+            <p>• Implemented MCTS-based decision system</p>
+            <p>• Simulated future outcomes</p>
+            <p>• Compared action selection results</p>
         </div>
+
+        <div style="margin-top: var(--space-md);">
+            <a class="button button--secondary" href="https://github.com/MaulDev13/Unity_Turn-Based-Game-2D-with-MCTS" target="_blank">
+                GitHub →
+            </a>
+        </div>
+
     </div>
+
 
     <!-- Pacu Jalur -->
-    <div class="space-y-4 my-3">
-        <div class="border p-4 rounded-lg">
-            <h3 class="font-bold">Pacu Jalur 2D</h3>
-            <p class="text-sm text-gray-600 mb-2">
-                A racing prototype focused on input-driven acceleration and movement control.
-                Explores responsiveness and continuous player interaction.
-            </p>
-            <p class="text-xs text-gray-500 mb-2">Tech: Unity, C#</p>
-            <div class="text-xs text-gray-500 space-y-1 mt-2">
-                <p>• Implemented tap-based acceleration</p>
-                <p>• Handled movement and obstacle interaction</p>
-                <p>• Tuned responsiveness</p>
-            </div>
+    <div class="card card--sm card--interactive">
 
-            <div class="flex gap-3 mt-3">
-                <a href="https://github.com/MaulDev13/Unity_Game-Pacu-Jalur-2D" 
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    View on GitHub →
-                </a>
+        <h3>Pacu Jalur 2D</h3>
 
-                <!-- <a href="https://amaul.itch.io/"
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    Try on Itch.io →
-                </a> -->
-            </div>
+        <p class="text-body">
+            Input-driven racing prototype focusing on responsiveness and movement control.
+        </p>
+
+        <p class="text-meta">Tech: Unity, C#</p>
+
+        <div style="margin-top: var(--space-md);">
+            <a class="button button--secondary" href="https://github.com/MaulDev13/Unity_Game-Pacu-Jalur-2D" target="_blank">
+                GitHub →
+            </a>
         </div>
+
     </div>
+
 
     <!-- Hungry Fish -->
-    <div class="space-y-4 my-3">
-        <div class="border p-4 rounded-lg">
-            <h3 class="font-bold">Hungry Fish 3D</h3>
-            <p class="text-sm text-gray-600 mb-2">
-                A 3D prototype focused on movement systems and control responsiveness.
-                Explores continuous motion and player feedback.
-            </p>
-            <p class="text-xs text-gray-500 mb-2">Tech: Unity, C#</p>
-            <div class="text-xs text-gray-500 space-y-1 mt-2">
-                <p>• Implemented movement and control system</p>
-                <p>• Simulated continuous motion</p>
-                <p>• Tuned interaction feel</p>
-            </div>
+    <div class="card card--sm card--interactive">
 
-            <div class="flex gap-3 mt-3">
-                <a href="https://github.com/MaulDev13/Unity_Hungry-Fish-3D" 
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    View on GitHub →
-                </a>
+        <h3>Hungry Fish 3D</h3>
 
-                <!-- <a href="https://amaul.itch.io/"
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    Try on Itch.io →
-                </a> -->
-            </div>
+        <p class="text-body">
+            3D movement prototype focused on responsiveness and player control.
+        </p>
+
+        <p class="text-meta">Tech: Unity, C#</p>
+
+        <div style="margin-top: var(--space-md);">
+            <a class="button button--secondary" href="https://github.com/MaulDev13/Unity_Hungry-Fish-3D" target="_blank">
+                GitHub →
+            </a>
         </div>
+
     </div>
+
 
     <!-- Platform Indonesia vs Japan -->
-    <div class="space-y-4 my-3">
-        <div class="border p-4 rounded-lg">
-            <h3 class="font-bold">Platform 2D — Indonesia vs Japan</h3>
-            <p class="text-sm text-gray-600 mb-2">
-                A platformer focused on level progression and player movement.
-                Explores environment interaction and stage design.
-            </p>
-            <p class="text-xs text-gray-500 mb-2">Tech: Unity, C#</p>
+    <div class="card card--sm card--interactive">
 
-            <div class="flex gap-3 mt-3">
-                <!-- <a href="https://github.com/MaulDev13/" 
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    View on GitHub →
-                </a> -->
+        <h3>Platform 2D — Indonesia vs Japan</h3>
 
-                <a href="https://amaul.itch.io/platform-2d-indonesia-vs-japan"
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    Try on Itch.io →
-                </a>
-            </div>
+        <p class="text-meta">Tech: Unity, C#</p>
+
+        <div style="margin-top: var(--space-md);">
+            <a class="button button--primary" href="https://amaul.itch.io/platform-2d-indonesia-vs-japan" target="_blank">
+                Itch.io →
+            </a>
         </div>
+
     </div>
 
-    <!-- Sultan Hasanuddin -->
-    <div class="space-y-4 my-3">
-        <div class="border p-4 rounded-lg">
-            <h3 class="font-bold">Platform 2D — Sultan Hasanuddin</h3>
-            <p class="text-sm text-gray-600 mb-2">
-                A platformer with structured progression and enemy encounters.
-                Focuses on difficulty scaling and interaction patterns.
-            </p>
-            <p class="text-xs text-gray-500 mb-2">Tech: Unity, C#</p>
 
-            <div class="flex gap-3 mt-3">
-                <!-- <a href="https://github.com/MaulDev13/" 
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    View on GitHub →
-                </a> -->
+    <!-- Hasanuddin -->
+    <div class="card card--sm card--interactive">
 
-                <a href="https://amaul.itch.io/platform-2d-sultan-hasanuddin"
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    Try on Itch.io →
-                </a>
-            </div>
+        <h3>Platform 2D — Sultan Hasanuddin</h3>
+
+        <p class="text-meta">Tech: Unity, C#</p>
+
+        <div style="margin-top: var(--space-md);">
+            <a class="button button--primary" href="https://amaul.itch.io/platform-2d-sultan-hasanuddin" target="_blank">
+                Itch.io →
+            </a>
         </div>
+
     </div>
+
 
     <!-- Quiz -->
-    <div class="space-y-4 my-3">
-        <div class="border p-4 rounded-lg">
-            <h3 class="font-bold">Quiz Game</h3>
-            <p class="text-sm text-gray-600 mb-2">
-                A quiz system with scoring, timing, and multiple question types.
-                Explores structured data handling and user interaction flow.
-            </p>
-            <p class="text-xs text-gray-500 mb-2">Tech: Unity, C#</p>
+    <div class="card card--sm card--interactive">
 
-            <div class="flex gap-3 mt-3">
-                <!-- <a href="https://github.com/MaulDev13/" 
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    View on GitHub →
-                </a> -->
+        <h3>Quiz Game</h3>
 
-                <a href="https://amaul.itch.io/kuisoner-sederhana"
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    Try on Itch.io →
-                </a>
-            </div>
+        <p class="text-body">
+            A quiz system with scoring, timing, and structured question flow.
+        </p>
+
+        <p class="text-meta">Tech: Unity, C#</p>
+
+        <div style="margin-top: var(--space-md);">
+            <a class="button button--primary" href="https://amaul.itch.io/kuisoner-sederhana" target="_blank">
+                Itch.io →
+            </a>
         </div>
+
     </div>
+
 
     <!-- Card Game -->
-    <div class="space-y-4 my-3">
-        <div class="border p-4 rounded-lg">
-            <h3 class="font-bold">Card Game</h3>
-            <p class="text-sm text-gray-600 mb-2">
-                A card-based system exploring interactions between units and abilities.
-                Focuses on rule handling and turn-based logic.
-            </p>
-            <p class="text-xs text-gray-500 mb-2">Tech: Unity, C#</p>
+    <div class="card card--sm card--interactive">
 
-            <div class="flex gap-3 mt-3">
-                <!-- <a href="https://github.com/MaulDev13/" 
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    View on GitHub →
-                </a> -->
+        <h3>Card Game</h3>
 
-                <a href="https://amaul.itch.io/card-game"
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    Try on Itch.io →
-                </a>
-            </div>
+        <p class="text-body">
+            A card system exploring rules, abilities, and turn-based logic.
+        </p>
+
+        <p class="text-meta">Tech: Unity, C#</p>
+
+        <div style="margin-top: var(--space-md);">
+            <a class="button button--primary" href="https://amaul.itch.io/card-game" target="_blank">
+                Itch.io →
+            </a>
         </div>
+
     </div>
+
 
     <!-- Shooter -->
-    <div class="space-y-4 my-3">
-        <div class="border p-4 rounded-lg">
-            <h3 class="font-bold">Top-Down Shooter 2D</h3>
-            <p class="text-sm text-gray-600 mb-2">
-                A shooter prototype focused on movement, shooting mechanics, and enemy interaction.
-                Explores responsiveness and combat feedback.
-            </p>
-            <p class="text-xs text-gray-500 mb-2">Tech: Unity, C#</p>
+    <div class="card card--sm card--interactive">
 
-            <div class="flex gap-3 mt-3">
-                <!-- <a href="https://github.com/MaulDev13/" 
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    View on GitHub →
-                </a> -->
+        <h3>Top-Down Shooter 2D</h3>
 
-                <a href="https://amaul.itch.io/top-down-shooter-2d"
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    Try on Itch.io →
-                </a>
-            </div>
+        <p class="text-body">
+            Shooter prototype focusing on movement, shooting, and combat feedback.
+        </p>
+
+        <p class="text-meta">Tech: Unity, C#</p>
+
+        <div style="margin-top: var(--space-md);">
+            <a class="button button--primary" href="https://amaul.itch.io/top-down-shooter-2d" target="_blank">
+                Itch.io →
+            </a>
         </div>
+
     </div>
 
-    <!-- Dadu -->
-    <div class="space-y-4 my-3">
-        <div class="border p-4 rounded-lg">
-            <h3 class="font-bold">Dice 2D</h3>
-            <p class="text-sm text-gray-600 mb-2">
-                A simple simulation exploring randomness and probability through dice mechanics.
-            </p>
-            <p class="text-xs text-gray-500 mb-2">Tech: Unity, C#</p>
-            <div class="flex gap-3 mt-3">
-                <a href="https://github.com/MaulDev13/Unity_Dadu-2d" 
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    View on GitHub →
-                </a>
 
-                <a href="https://amaul.itch.io/dadu-2d"
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    Try on Itch.io →
-                </a>
-            </div>
+    <!-- Dice -->
+    <div class="card card--sm card--interactive">
+
+        <h3>Dice 2D</h3>
+
+        <p class="text-body">
+            Simple randomness simulation using dice mechanics.
+        </p>
+
+        <p class="text-meta">Tech: Unity, C#</p>
+
+        <div style="margin-top: var(--space-md); display:flex; gap:var(--space-sm);">
+            <a class="button button--secondary" href="https://github.com/MaulDev13/Unity_Dadu-2d" target="_blank">
+                GitHub →
+            </a>
+
+            <a class="button button--primary" href="https://amaul.itch.io/dadu-2d" target="_blank">
+                Itch.io →
+            </a>
         </div>
+
     </div>
+
 
     <!-- Skripshit -->
-    <div class="space-y-4 my-3">
-        <div class="border p-4 rounded-lg">
-            <h3 class="font-bold">Skripshit</h3>
-            <p class="text-sm text-gray-600 mb-2">
-                A narrative-driven project exploring quest systems, progression, and state persistence.
-            </p>
-            <p class="text-xs text-gray-500 mb-2">Tech: Unity, C#</p>
-            <div class="flex gap-3 mt-3">
-                <!-- <a href="https://github.com/MaulDev13/" 
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    View on GitHub →
-                </a> -->
+    <div class="card card--sm card--interactive">
 
-                <a href="https://amaul.itch.io/skripshit"
-                    target="_blank"
-                    class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-sm rounded-md transition">
-                    Try on Itch.io →
-                </a>
-            </div>
+        <h3>Skripshit</h3>
+
+        <p class="text-body">
+            Narrative system exploring quests, progression, and state persistence.
+        </p>
+
+        <p class="text-meta">Tech: Unity, C#</p>
+
+        <div style="margin-top: var(--space-md);">
+            <a class="button button--primary" href="https://amaul.itch.io/skripshit" target="_blank">
+                Itch.io →
+            </a>
         </div>
+
     </div>
 
 </div>

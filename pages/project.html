@@ -1,110 +1,109 @@
-<div class="bg-white p-6 rounded-xl shadow mb-6 hover:shadow-lg transition">
-    <h1 class="text-3xl font-bold mb-4">Projects</h1>
+<div class="card-group">
 
-    <p class="text-gray-600">
-        Selected work across backend systems, infrastructure, and game development.
-        I focus on building systems that are not only functional, but also maintainable and production-ready.
+    <!-- INTRO CARD -->
+    <div class="card">
 
-        <br><br>
+        <h1>Projects</h1>
 
-        Many of these projects are part of my learning process—experimenting with ideas,
-        improving my skills, and understanding how systems behave in real-world scenarios.
-    </p>
-</div>
+        <p>
+            Selected work across backend systems, infrastructure, and game development.
+            I focus on building systems that are functional, maintainable, and production-ready.
+        </p>
 
-<!-- Featured -->
-<div class="bg-white p-6 rounded-xl shadow mb-6">
-    <h2 class="text-xl font-semibold mb-4">🚀 Featured Work</h2>
-
-    <div class="space-y-4">
-
-        <!-- Chatbot -->
-        <div class="bg-white p-6 rounded-xl shadow mb-6 hover:shadow-lg transition">
-            <button
-                class="flex justify-between items-center w-full text-xl font-semibold mb-4"
-                hx-get="/pages/contents/chatbot-content.html"
-                hx-target="#chatbot-content"
-                hx-trigger="click once"
-                hx-swap="innerHTML"
-                onclick="toggleSection(this, 'chatbot-content')"
-            >
-                <span>🤖 Chatbot Development</span>
-
-                <span class="arrow transition-transform duration-300">
-                    ▼
-                </span>
-            </button>
-
-            <div id="chatbot-content" class="hidden"></div>
-        </div>
-
-        <!-- DevOps -->
-        <div class="bg-white p-6 rounded-xl shadow mb-6 hover:shadow-lg transition">
-            <button
-                class="flex justify-between items-center w-full text-xl font-semibold mb-4"
-                hx-get="/pages/contents/devops-content.html"
-                hx-target="#devops-content"
-                hx-trigger="click once"
-                hx-swap="innerHTML"
-                onclick="toggleSection(this, 'devops-content')"
-            >
-                <span>⚙️ DevOps and Infrastructure</span>
-
-                <span class="arrow transition-transform duration-300">
-                    ▼
-                </span>
-            </button>
-
-            <div id="devops-content" class="hidden"></div>
-        </div>
-
-        <!-- Game -->
-        <div class="bg-white p-6 rounded-xl shadow mb-6 hover:shadow-lg transition">
-            <button
-                class="flex justify-between items-center w-full text-xl font-semibold mb-4"
-                hx-get="/pages/contents/game-content.html"
-                hx-target="#game-content"
-                hx-trigger="click once"
-                hx-swap="innerHTML"
-                onclick="toggleSection(this, 'game-content')"
-            >
-                <span>🎮 Game Development</span>
-
-                <span class="arrow transition-transform duration-300">
-                    ▼
-                </span>
-            </button>
-
-            <div id="game-content" class="hidden"></div>
-        </div>
+        <p>
+            Many of these projects are part of my learning process—experimenting with ideas,
+            improving skills, and understanding how systems behave in real-world scenarios.
+        </p>
 
     </div>
+
+    <!-- FEATURED SECTION -->
+    <div class="card">
+
+        <h2>🚀 Featured Work</h2>
+
+        <div class="card-group">
+
+            <!-- CHATBOT -->
+            <div class="card card--sm project-item">
+
+                <button
+                    class="button button--primary"
+                    hx-get="/pages/contents/chatbot-content.html"
+                    hx-target="#chatbot-content"
+                    hx-trigger="click once"
+                    hx-swap="innerHTML"
+                    onclick="toggleProject(this, 'chatbot-content')"
+                >
+                    <span>🤖 Chatbot Development</span>
+                    <span class="arrow">▼</span>
+                </button>
+
+                <div id="chatbot-content" class="project-content hidden"></div>
+
+            </div>
+
+            <!-- DEVOPS -->
+            <div class="card card--sm project-item">
+
+                <button
+                    class="button button--primary"
+                    hx-get="/pages/contents/devops-content.html"
+                    hx-target="#devops-content"
+                    hx-trigger="click once"
+                    hx-swap="innerHTML"
+                    onclick="toggleProject(this, 'devops-content')"
+                >
+                    <span>⚙️ DevOps and Infrastructure</span>
+                    <span class="arrow">▼</span>
+                </button>
+
+                <div id="devops-content" class="project-content hidden"></div>
+
+            </div>
+
+            <!-- GAME DEV -->
+            <div class="card card--sm project-item">
+
+                <button
+                    class="button button--primary"
+                    hx-get="/pages/contents/game-content.html"
+                    hx-target="#game-content"
+                    hx-trigger="click once"
+                    hx-swap="innerHTML"
+                    onclick="toggleProject(this, 'game-content')"
+                >
+                    <span>🎮 Game Development</span>
+                    <span class="arrow">▼</span>
+                </button>
+
+                <div id="game-content" class="project-content hidden"></div>
+
+            </div>
+
+        </div>
+    </div>
+
 </div>
 
-
 <script>
-function toggleSection(button, targetId) {
-    const allContents = document.querySelectorAll('[id$="-content"]');
-    const allButtons = document.querySelectorAll('.arrow');
+function toggleProject(button, targetId) {
+    const target = document.getElementById(targetId);
+    if (!target) return;
 
-    const targetContent = document.getElementById(targetId);
-    const targetArrow = button.querySelector(".arrow");
+    const isOpen = !target.classList.contains("hidden");
 
-    const isOpening = targetContent.classList.contains("hidden");
+    // close all
+    document.querySelectorAll(".project-content")
+        .forEach(el => el.classList.add("hidden"));
 
-    // 🔁 Close ALL sections first
-    allContents.forEach(el => {
-        el.classList.add("hidden");
-    });
+    document.querySelectorAll(".arrow")
+        .forEach(el => el.textContent = "▼");
 
-    allButtons.forEach(arrow => {
-        arrow.classList.remove("rotate-180");
-    });
-
-    // ✅ If it was closed → open it
-    if (isOpening) {
-        targetContent.classList.remove("hidden");
-        targetArrow.classList.add("rotate-180");
+    // toggle
+    if (!isOpen) {
+        target.classList.remove("hidden");
+        button.querySelector(".arrow").textContent = "▲";
     }
 }
 </script>
