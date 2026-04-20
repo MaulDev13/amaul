@@ -24,6 +24,25 @@
 
         <div class="card-group">
 
+            <!-- PORTOFOLIO -->
+            <div class="card card--sm project-item">
+
+                <button
+                    class="button button--primary"
+                    hx-get="/pages/contents/portofolio-content.html"
+                    hx-target="#portofolio-content"
+                    hx-trigger="click once"
+                    hx-swap="innerHTML"
+                    onclick="toggleProject(this, 'portofolio-content')"
+                >
+                    <span>👤 Personal Portfolio System</span>
+                    <span class="arrow">▼</span>
+                </button>
+
+                <div id="portofolio-content" class="project-content hidden"></div>
+
+            </div>
+
             <!-- CHATBOT -->
             <div class="card card--sm project-item">
 
