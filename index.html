@@ -56,7 +56,6 @@
     <!-- SCRIPTS -->
     <script src="js/config.js"></script>
     <script src="js/script.js"></script>
-
     <script>
         const API_BASE = document
             .querySelector('meta[name="api-base"]')
@@ -68,28 +67,26 @@
         ) ? "" : "";
 
         /* =========================================================
-           HTMX ROUTING
-           ========================================================= */
+        HTMX ROUTING
+        ========================================================= */
         document.body.addEventListener("htmx:configRequest", function (event) {
             let path = event.detail.path;
 
             if (!path) return;
 
-            // API routing
             if (path.startsWith("/api")) {
                 event.detail.path = API_BASE + path;
                 return;
             }
 
-            // static routing
             if (!path.startsWith("http")) {
                 event.detail.path = BASE_PATH + path;
             }
         });
 
         /* =========================================================
-           NAV ACTIVE STATE (DESIGN SYSTEM FRIENDLY)
-           ========================================================= */
+        NAV ACTIVE STATE
+        ========================================================= */
         function setActive(button) {
             document.querySelectorAll(".nav-btn")
                 .forEach(btn => btn.classList.remove("is-active"));
@@ -103,8 +100,8 @@
         });
 
         /* =========================================================
-           LOADING STATE (HTMX HOOKED)
-           ========================================================= */
+        LOADING STATE
+        ========================================================= */
         const loadingEl = document.getElementById("loading");
 
         document.body.addEventListener("htmx:beforeRequest", () => {
@@ -115,9 +112,51 @@
             loadingEl?.classList.add("hidden");
         });
 
-        document.body.addEventListener("htmx:responseError", () => {
+        /* =========================================================
+        ERROR HANDLING
+        ========================================================= */
+        document.body.addEventListener("htmx:responseError", (event) => {
             loadingEl?.classList.add("hidden");
+
+            const status = event.detail.xhr.status;
+
+            console.error("HTMX Error:", {
+                status,
+                response: event.detail.xhr.responseText
+            });
+
+            handleError(status);
         });
+
+        document.body.addEventListener("htmx:sendError", () => {
+            loadingEl?.classList.add("hidden");
+            safeLoadError("/pages/errors/network.html");
+        });
+
+        /* =========================================================
+        ERROR ROUTER
+        ========================================================= */
+        function handleError(status) {
+            if (status === 404) {
+                safeLoadError("/pages/errors/404.html");
+            } else if (status >= 500) {
+                safeLoadError("/pages/errors/500.html");
+            } else {
+                safeLoadError("/pages/errors/general.html");
+            }
+        }
+
+        /* =========================================================
+        SAFE ERROR LOADER (ANTI-LOOP)
+        ========================================================= */
+        let isHandlingError = false;
+
+        function safeLoadError(path) {
+            if (isHandlingError) return; // prevent infinite loop
+            isHandlingError = true;
+
+            htmx.ajax("GET", path, "#content");
+        }
     </script>
 
 </body>

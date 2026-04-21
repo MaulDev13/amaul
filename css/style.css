@@ -386,6 +386,13 @@ p {
         padding: 0;
     }
 
+	/* Justify text khusus untuk konten CV */
+	.cv-content p {
+		text-align: justify;
+		text-justify: inter-word;
+		hyphens: auto;
+	}
+
     .page-stack {
         gap: 1rem;
     }
@@ -445,11 +452,11 @@ p {
         text-decoration: none;
     }
 
-    a::after {
+    /* a::after {
         content: " (" attr(href) ")";
         font-size: 10pt;
         color: #555;
-    }
+    } */
 
     /* Avatar smaller */
     .cv-avatar {
