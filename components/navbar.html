@@ -25,6 +25,14 @@
         </button>
 
         <button class="nav-btn"
+            hx-get="/pages/cv.html"
+            hx-target="#content"
+            hx-swap="innerHTML"
+            hx-indicator="#loading">
+            Curriculum Vitae
+        </button>
+
+        <button class="nav-btn"
             hx-get="/pages/contact.html"
             hx-target="#content"
             hx-swap="innerHTML"
