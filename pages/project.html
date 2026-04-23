@@ -112,17 +112,26 @@ function toggleProject(button, targetId) {
 
     const isOpen = !target.classList.contains("hidden");
 
-    // close all
+    // CLOSE ALL PROJECTS
     document.querySelectorAll(".project-content")
         .forEach(el => el.classList.add("hidden"));
 
+    // RESET ALL ARROWS
     document.querySelectorAll(".arrow")
         .forEach(el => el.textContent = "▼");
 
-    // toggle
+    // OPEN CURRENT
     if (!isOpen) {
         target.classList.remove("hidden");
         button.querySelector(".arrow").textContent = "▲";
+
+        // ✅ smooth scroll to opened content
+        setTimeout(() => {
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }, 50);
     }
 }
 </script>
