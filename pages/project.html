@@ -43,6 +43,25 @@
 
             </div>
 
+            <!-- LEARNING WEB -->
+            <div class="card card--sm project-item">
+
+                <button
+                    class="button button--primary"
+                    hx-get="/pages/contents/learning-content.html"
+                    hx-target="#learning-content"
+                    hx-trigger="click once"
+                    hx-swap="innerHTML"
+                    onclick="toggleProject(this, 'learning-content')"
+                >
+                    <span>📘 Web-Based Learning Platform</span>
+                    <span class="arrow">▼</span>
+                </button>
+
+                <div id="learning-content" class="project-content hidden"></div>
+
+            </div>
+
             <!-- CHATBOT -->
             <div class="card card--sm project-item">
 
